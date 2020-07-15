@@ -10,8 +10,7 @@ class Image
      */
     public function __invoke($_, array $args)
     {
-        $uploadedImage = Arr::get($args, 'image');
+        return $args['image']->storePublicly('uploads');
 
-        return $uploadedImage->storePublicly('uploads');
     }
 }
