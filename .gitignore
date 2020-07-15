@@ -16,3 +16,4 @@ yarn-error.log
 vue-upload-client/node_modules
 vue-upload-client/dist
 vue-upload-client/public
+.idea
