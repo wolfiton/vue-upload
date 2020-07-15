@@ -1,0 +1,31 @@
+extend type Query {
+    posts: [Post!]! @paginate(defaultCount: 10)
+    post(id: ID @eq): Post @find
+}
+
+extend type Mutation {
+    createPostManually(input: CreatePostManuallyInput! @spread): Post
+    createPostWithArgResolver(input: CreatePostInput! @spread): Post @create
+    simpleImageUpload(image: Upload!): String
+}
+
+type Post {
+    id: ID!
+    title: String!
+    content: String!
+    image: String
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+input CreatePostManuallyInput {
+    title: String!
+    content: String!
+    image: Upload!
+}
+
+input CreatePostInput {
+    title: String!
+    content: String!
+    image: Upload! @imageUpload
+}
