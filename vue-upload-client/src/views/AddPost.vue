@@ -55,6 +55,7 @@
             </b-form>
             <b-card class="mt-3" header="Form Data Result">
                 <pre class="m-0">{{ form }}</pre>
+                <pre class="m-0">{{ form.file }}</pre>
             </b-card>
         </div>
     </div>
@@ -77,6 +78,7 @@ export default {
         onSubmit(evt) {
             evt.preventDefault();
             alert(JSON.stringify(this.form));
+            console.log(this.form.file);
         },
         onReset(evt) {
             evt.preventDefault();
