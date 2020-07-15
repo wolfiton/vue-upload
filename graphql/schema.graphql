@@ -48,5 +48,5 @@ type Mutation {
 input CreatePostInput {
     title: String!
     content: String!
-    # image(file: Upload!): String
+    image: Upload!
 }
