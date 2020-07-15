@@ -9,7 +9,7 @@
 
 ## Example of a image with laravel lighthouse and vue 
 
-**This examples try to solve the [Issue #1473](https://github.com/nuwave/lighthouse/issues/1473)**
+**This example is trying to solve the [Issue #1473](https://github.com/nuwave/lighthouse/issues/1473)**
 Contributers:
 @spawnia
 @lorado
