@@ -1,0 +1,9 @@
+query {
+    posts {
+        data {
+            title
+            content
+            image
+        }
+    }
+}
