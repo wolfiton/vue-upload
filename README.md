@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## Example of a image with laravel lighthouse and vue 
+## Example of a image upload with laravel lighthouse and vue 
 
 **This example is trying to solve the [Issue #1473](https://github.com/nuwave/lighthouse/issues/1473)**
 Contributers:
