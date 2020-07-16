@@ -1,4 +1,4 @@
-mutation($title: String!, $content: String!, $image: Upload!) {
+mutation CreatePost($title: String!, $content: String!, $image: Upload!) {
     createPostWithArgResolver(
         input: { title: $title, content: $content, image: $image }
     ) {
