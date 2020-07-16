@@ -31,7 +31,7 @@ SDL;
     {
         $attributeName = $this->definitionNode->name->value;
 
-        $rootModel->$attributeName = $image->storePublicly('uploads');
+        $rootModel->$attributeName = $image->storePublicly('uploads', ['disk' => 'public']);
         $rootModel->save();
     }
 }

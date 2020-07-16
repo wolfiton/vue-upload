@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import CreatePost from "@/graphql/mutations/CreatePost.gql";
 export default {
     data() {
         return {
@@ -77,8 +78,27 @@ export default {
     methods: {
         onSubmit(evt) {
             evt.preventDefault();
-            alert(JSON.stringify(this.form));
             console.log(this.form.file);
+
+            this.$apollo
+                .mutate({
+                    // Query
+                    mutation: CreatePost,
+                    // Parameters
+                    variables: {
+                        title: this.form.title,
+                        content: this.form.content,
+                        image: this.form.file
+                    }
+                })
+                .then(data => {
+                    // Result
+                    console.log(data);
+                })
+                .catch(error => {
+                    // Error
+                    console.error(error);
+                });
         },
         onReset(evt) {
             evt.preventDefault();

@@ -12,14 +12,15 @@
                             :key="post.id"
                             :title="post.title"
                             class="mb-2 ml-3"
+                            style="height:400px;"
                         >
                             <b-card-text>
                                 <img
                                     :src="
-                                        `http://localhost:8000/public/storage/${post.image}`
+                                        `http://localhost:8000/storage/${post.image}`
                                     "
                                     alt="cover image"
-                                    style="width:200px"
+                                    style="width:200px; height:200px;"
                                 />
                                 <div>{{ post.content }}</div>
                             </b-card-text>

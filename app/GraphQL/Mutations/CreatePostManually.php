@@ -14,7 +14,7 @@ class CreatePostManually
      */
     public function __invoke($_, array $args)
     {
-        $imagePath = $args['image']->storePublicly('uploads');
+        $imagePath->storePublicly('uploads', ['disk' => 'public']);
 
         return Post::create([
             'title' => $args['title'],

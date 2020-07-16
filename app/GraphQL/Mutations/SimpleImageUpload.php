@@ -12,6 +12,6 @@ class SimpleImageUpload
      */
     public function __invoke($_, array $args)
     {
-        return $args['image']->storePublicly('uploads');
+        return $image->storePublicly('uploads', ['disk' => 'public']);
     }
 }
