@@ -1,17 +1,21 @@
 <template>
     <div class="container">
-        <div class="row">
-            <ApolloQuery :query="postsQuery">
-                <!-- The result will automatically updated -->
-                <template slot-scope="{ result: { data, loading } }">
-                    <!-- Some content -->
-                    <div v-if="loading">Loading...</div>
-                    <div v-else class="row">
+        <ApolloQuery :query="postsQuery">
+            <!-- The result will automatically updated -->
+            <template slot-scope="{ result: { data, loading } }">
+                <!-- Some content -->
+                <div v-if="loading">Loading...</div>
+                <div v-else class="row">
+                    <div
+                        v-for="post of data.posts.data"
+                        :key="post.id"
+                        class="col-12 col-md-6 col-lg-4 mt-2"
+                    >
                         <b-card
-                            v-for="post of data.posts.data"
-                            :key="post.id"
-                            :title="post.title"
-                            class="mb-2 ml-3"
+                            border-variant="primary"
+                            header-bg-variant="primary"
+                            header-text-variant="white"
+                            :header="post.title"
                             style="height:400px;"
                         >
                             <b-card-text>
@@ -20,7 +24,8 @@
                                         `http://localhost:8000/storage/${post.image}`
                                     "
                                     alt="cover image"
-                                    style="width:200px; height:200px;"
+                                    style="max-width:200px; max-height:300px;"
+                                    class="rounded"
                                 />
                                 <div>{{ post.content }}</div>
                             </b-card-text>
@@ -30,9 +35,9 @@
                             >
                         </b-card>
                     </div>
-                </template>
-            </ApolloQuery>
-        </div>
+                </div>
+            </template>
+        </ApolloQuery>
     </div>
 </template>
 
@@ -44,7 +49,8 @@ export default {
     name: "Home",
     data() {
         return {
-            postsQuery
+            postsQuery,
+            posts: []
         };
     }
 };

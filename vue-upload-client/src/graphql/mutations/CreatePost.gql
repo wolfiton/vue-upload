@@ -4,6 +4,7 @@ mutation($title: String!, $content: String!, $image: Upload!) {
     ) {
         id
         title
+        content
         image
     }
 }

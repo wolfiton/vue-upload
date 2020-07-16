@@ -94,6 +94,7 @@ export default {
                 .then(data => {
                     // Result
                     console.log(data);
+                    this.$router.push("/");
                 })
                 .catch(error => {
                     // Error
