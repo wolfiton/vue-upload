@@ -11,12 +11,12 @@
                             v-for="post of data.posts.data"
                             :key="post.id"
                             :title="post.title"
-                            class="mb-2 col-4"
+                            class="mb-2 ml-3"
                         >
                             <b-card-text>
                                 <img
                                     :src="
-                                        `http://localhost:8000/uploads/${post.image}`
+                                        `http://localhost:8000/public/storage/${post.image}`
                                     "
                                     alt="cover image"
                                     style="width:200px"
