@@ -1,0 +1,175 @@
+type Query {
+  posts(
+    """Limits number of fetched elements."""
+    first: Int = 10
+
+    """The offset from which elements are returned."""
+    page: Int
+  ): PostPaginator
+  post(id: ID): Post
+  users(
+    """Limits number of fetched elements."""
+    first: Int = 10
+
+    """The offset from which elements are returned."""
+    page: Int
+  ): UserPaginator
+  user(id: ID): User
+}
+
+"""A paginated list of Post items."""
+type PostPaginator {
+  """Pagination information about the list of items."""
+  paginatorInfo: PaginatorInfo!
+
+  """A list of Post items."""
+  data: [Post!]!
+}
+
+"""Pagination information about the corresponding list of items."""
+type PaginatorInfo {
+  """Total count of available items in the page."""
+  count: Int!
+
+  """Current pagination page."""
+  currentPage: Int!
+
+  """Index of first item in the current page."""
+  firstItem: Int
+
+  """If collection has more pages."""
+  hasMorePages: Boolean!
+
+  """Index of last item in the current page."""
+  lastItem: Int
+
+  """Last page number of the collection."""
+  lastPage: Int!
+
+  """Number of items per page in the collection."""
+  perPage: Int!
+
+  """Total items available in the collection."""
+  total: Int!
+}
+
+type Post {
+  id: ID!
+  title: String!
+  content: String!
+  image: String
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+"""
+A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`.
+"""
+scalar DateTime
+
+"""A paginated list of User items."""
+type UserPaginator {
+  """Pagination information about the list of items."""
+  paginatorInfo: PaginatorInfo!
+
+  """A list of User items."""
+  data: [User!]!
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type Mutation {
+  createPostManually(input: CreatePostManuallyInput!): Post
+  createPostWithArgResolver(input: CreatePostInput!): Post
+  simpleImageUpload(image: Upload!): String
+}
+
+input CreatePostManuallyInput {
+  title: String!
+  content: String!
+  image: Upload!
+}
+
+"""
+Can be used as an argument to upload files using https://github.com/jaydenseric/graphql-multipart-request-spec
+"""
+scalar Upload
+
+input CreatePostInput {
+  title: String!
+  content: String!
+  image: Upload!
+}
+
+"""A date string with format `Y-m-d`, e.g. `2011-05-23`."""
+scalar Date
+
+"""
+A datetime and timezone string in ISO 8601 format `Y-m-dTH:i:sO`, e.g. `2020-04-20T13:53:12+02:00`.
+"""
+scalar DateTimeTz
+
+"""Pagination information about the corresponding list of items."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """Total number of node in connection."""
+  total: Int
+
+  """Count of nodes in current request."""
+  count: Int
+
+  """Current page of request."""
+  currentPage: Int
+
+  """Last page in connection."""
+  lastPage: Int
+}
+
+"""The available directions for ordering a list of records."""
+enum SortOrder {
+  """Sort records in ascending order."""
+  ASC
+
+  """Sort records in descending order."""
+  DESC
+}
+
+"""Allows ordering a list of records."""
+input OrderByClause {
+  """The column that is used for ordering."""
+  field: String!
+
+  """The direction that is used for ordering."""
+  order: SortOrder!
+}
+
+"""
+Specify if you want to include or exclude trashed results from a query.
+"""
+enum Trashed {
+  """Only return trashed results."""
+  ONLY
+
+  """Return both trashed and non-trashed results."""
+  WITH
+
+  """Only return non-trashed results."""
+  WITHOUT
+}
