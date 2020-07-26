@@ -1,0 +1,9 @@
+query GetPosts{
+  posts {
+    data {
+      title
+      content
+      image
+    }
+  }
+}

@@ -1,0 +1,18 @@
+overwrite: true
+schema: "http://127.0.0.1:8000/graphql"
+documents:
+  - "./graphql/**/*.gql"
+generates:
+  graphql/GQLTypes.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+    config:
+      scalars:
+        JSON: "{ [key: string]: any }"
+  schema.graphql:
+    plugins:
+      - schema-ast
+  graphql/fragmentTypes.json:
+    plugins:
+      - fragment-matcher
