@@ -33,12 +33,12 @@
       </b-form-group>
 
       <b-progress
+        v-if="isUploading"
         :value="uploadingProgress"
         :max="100"
         show-progress
         animated
         class="mb-4"
-        v-if="isUploading"
       ></b-progress>
 
       <b-button class="ml-3" type="submit" variant="primary">Submit</b-button>
@@ -73,6 +73,7 @@ export default class Home extends Vue {
     content: '',
     file: null,
   }
+
   isUploading = false
   uploadingProgress = 0
 

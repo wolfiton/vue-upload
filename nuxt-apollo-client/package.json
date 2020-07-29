@@ -19,6 +19,7 @@
     "apollo-link": "^1.2.12",
     "apollo-link-error": "^1.1.11",
     "apollo-upload-client": "^12.1.0",
+    "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
     "cross-fetch": "^3.0.5",
@@ -39,12 +40,17 @@
     "@nuxtjs/eslint-config": "^3.0.0",
     "@nuxtjs/eslint-config-typescript": "^2.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
+    "@types/jest": "^26.0.7",
+    "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.1.0",
     "prettier": "^2.0.5",
-    "vue-apollo": "^3.0.3"
+    "ts-jest": "^26.1.4",
+    "vue-apollo": "^3.0.3",
+    "vue-jest": "^3.0.6"
   }
 }
