@@ -6,6 +6,7 @@ extend type Query {
 type User {
     id: ID!
     name: String!
+    username: String!
     email: String!
     created_at: DateTime!
     updated_at: DateTime!
