@@ -22,7 +22,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
-    "cross-fetch": "^3.0.5",
+    "cross-fetch": "^3.1.5",
     "form-data": "^3.0.0",
     "graphql": "^15.3.0",
     "graphql-tag": "^2.10.1",
